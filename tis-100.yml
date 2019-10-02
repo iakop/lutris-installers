@@ -1,0 +1,23 @@
+name: "TIS-100"
+game_slug: "tis-100"
+version: "GOG"
+slug: "tis-100-gog"
+runner: "wine"
+
+script:
+  game:
+    exe: "$GAMEDIR/tis-100/drive_c/GOG Games/TIS-100/tis100.exe"
+    prefix: $GAMEDIR/tis-100
+    arch: win32
+    working_dir: $GAMEDIR/tis-100
+  files:
+  - setup: "N/A:Select the game's setup file"
+  installer:
+  - execute:
+      args: --gog -d "$CACHE" setup
+      description: Extracting game data
+      file: innoextract
+  - move:
+      description: Extracting game data
+      dst: $GAMEDIR/tis-100/drive_c/GOG Games/TIS-100/
+      src: $CACHE/app
