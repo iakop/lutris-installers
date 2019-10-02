@@ -6,10 +6,10 @@ runner: "wine"
 
 script:
   game:
-    exe: "$GAMEDIR/tis-100/drive_c/GOG Games/TIS-100/tis100.exe"
-    prefix: $GAMEDIR/tis-100
+    exe: "$GAMEDIR/drive_c/GOG Games/TIS-100/tis100.exe"
+    prefix: "$GAMEDIR"
     arch: win32
-    working_dir: $GAMEDIR/tis-100
+    working_dir: "$GAMEDIR"
   files:
   - setup: "N/A:Select the game's setup file"
   installer:
@@ -19,5 +19,5 @@ script:
       file: innoextract
   - move:
       description: Extracting game data
-      dst: $GAMEDIR/tis-100/drive_c/GOG Games/TIS-100/
-      src: $CACHE/app
+      dst: "$GAMEDIR/drive_c/GOG Games/TIS-100"
+      src: "$CACHE/app"
