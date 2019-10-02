@@ -1,0 +1,27 @@
+name: "Stardew Valley"
+game_slug: "stardew-valley"
+version: "GOG"
+slug: "stardew-valley-gog"
+runner: "wine"
+
+script:
+  game:
+    exe: "$GAMEDIR/drive_c/GOG Games/Stardew Valley/Stardew Valley.exe"
+    prefix: "$GAMEDIR"
+    arch: win32
+    working_dir: "$GAMEDIR"
+  files:
+  - setup: "N/A:Select the game's setup file"
+  installer:
+  - task:
+      name: winetricks
+      prefix: "$GAMEDIR"
+      app: xna40
+  - execute:
+      args: --gog -d "$CACHE" setup
+      description: Extracting game data
+      file: innoextract
+  - move:
+      description: Extracting game data
+      dst: "$GAMEDIR/drive_c/GOG Games/Stardew Valley"
+      src: "$CACHE/app"
