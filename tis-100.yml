@@ -10,6 +10,7 @@ script:
     prefix: "$GAMEDIR"
     arch: win32
     working_dir: "$GAMEDIR"
+  require-binaries: innoextract, /usr/lib32/libpulse.so
   files:
   - setup: "N/A:Select the game's setup file"
   installer:

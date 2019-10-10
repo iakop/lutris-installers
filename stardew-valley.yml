@@ -10,6 +10,7 @@ script:
     prefix: "$GAMEDIR"
     arch: win32
     working_dir: "$GAMEDIR"
+  require-binaries: innoextract, /usr/lib32/libpulse.so, /usr/lib32/alsa-lib/libasound_module_pcm_pulse.so, /usr/lib32/libopenal.so, /usr/lib32/libmpg123.so
   files:
   - setup: "N/A:Select the game's setup file"
   installer:
