@@ -1,0 +1,30 @@
+name: "Bravely Default"
+game_slug: "bravely-default"
+version: "3DS"
+slug: "bravely-default-3ds"
+runner: "citra"
+
+script:
+  require-binaries: citra-qt, citra-room 
+  files:
+  - rom: "N/A:Select the game's ROM"
+  installer:
+  - merge:
+      src: rom
+      dst: "$GAMEDIR"
+  - execute:
+      command: mkdir -p "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600"
+      description: Creating Citra savefile dir
+  - execute:
+      command: if [ -L "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600/data" ]; then rm "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600/data"; fi
+      description: Removing existing symlink
+  - execute:
+      command: if [ -d "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600/data" ]; then mv "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600/data" "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600/data.bak"; fi
+      description: Moving possible existing savefiles to backup dir
+  - execute:
+      command: mkdir -p "$GAMEDIR/savefiles"
+      description: Creating savefile dir
+  - execute:
+      command: ln -sf "$GAMEDIR/savefiles" "$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/00000000000000000000000000000000/00000000000000000000000000000000/title/00040000/000fc600/data"
+      description: Ĺinking savefiles to install directory
+  main_file: rom
