@@ -1,0 +1,18 @@
+#!/bin/bash
+
+citrasavedir="$HOME/.local/share/citra-emu/sdmc/Nintendo 3DS/0000000000000000000000000/title/00040000/"
+gamedir="$HOME/vgs"
+storagedir="$HOME/nxt/Private/Games/savefiles"
+
+installdirsaves=(\
+				"stardew-valley:$gamedir/stardew-valley/drive_c/users/$USER/Application Data/StardewValley/"\
+				"bravely-default:$citrasavedir/000fc600/data"\
+				"animal-crossing-welcome-amiibo:$citrasavedir/00198f00/data"\
+				)
+storagesaves=(\
+				"stardew-valley:$storagedir/stardew-valley"\
+				"bravely-default:$storagedir/bravely-default"\
+				"animal-crossing-welcome-amiibo:$storagedir/animal-crossing-welcome-amiibo"\
+				)
+
+installedgames=($(/bin/ls -w1 $gamedir))
