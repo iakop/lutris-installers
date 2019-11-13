@@ -9,7 +9,7 @@ script:
     exe: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game/Untitled.exe"
     prefix: "$GAMEDIR"
     arch: win64
-    working_dir: "$GAMEDIR"
+    working_dir: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game"
   files:
   - archive: "N/A:Select the game's rar archive"
   installer:
@@ -23,11 +23,3 @@ script:
       description: Moving cache to app folder
       dst: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game"
       src: "$CACHE/Untitled.Goose.Game/Untitled.Goose.Game"
-  - move:
-      description: Moving UnityPlayer.dll to windows folder
-      dst: "$GAMEDIR/drive_c/windows/UnityPlayer.dll"
-      src: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game/UnityPlayer.dll"
-  - move:
-      description: Moving WinPixEventRuntime.dll to windows folder
-      dst: "$GAMEDIR/drive_c/windows/WinPixEventRuntime.dll"
-      src: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game/WinPixEventRuntime.dll"
