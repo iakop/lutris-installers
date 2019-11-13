@@ -3,6 +3,7 @@ A collection of my own custom game installers for local installation on lutris.
 Requires at least lutris-0.5.3 to run.
 
 List of installers and dependencies:
+## PC
 ### TIS-100 (Win GOG installer, played through wine)
 	- Dependencies:	
 		- `wine`
@@ -24,3 +25,25 @@ List of installers and dependencies:
 		- `innoextract`
 	- Notes:
 		- *N/A*
+
+### Untitled Goose Game
+	- Dependencies:
+		- `wine`
+		- `wine-mono`
+		- `winetricks`
+		- `unrar`
+
+## 3DS
+### Animal Crossing Welcome Amiibo
+	- Dependencies:
+		- `wine`
+		- `wine-mono`
+		- `winetricks`
+		- `citra-qt-canary-bin`
+
+### Bravely Default
+	- Dependencies:
+		- `wine`
+		- `wine-mono`
+		- `winetricks`
+		- `citra-qt-canary-bin`

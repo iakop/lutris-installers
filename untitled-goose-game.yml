@@ -1,0 +1,33 @@
+name: "Untitled Goose Game"
+game_slug: "untitled-goose-game"
+version: "PC"
+slug: "untitled-goose-game"
+runner: "wine"
+
+script:
+  game:
+    exe: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game/Untitled.exe"
+    prefix: "$GAMEDIR"
+    arch: win64
+    working_dir: "$GAMEDIR"
+  files:
+  - archive: "N/A:Select the game's rar archive"
+  installer:
+  - merge:
+      src: archive
+      dst: "$CACHE"
+  - execute:
+      command: unrar x "$CACHE/*.rar" "$CACHE"
+      description: Extracting game files to cache dir.
+  - move:
+      description: Moving cache to app folder
+      dst: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game"
+      src: "$CACHE/Untitled.Goose.Game/Untitled.Goose.Game"
+  - move:
+      description: Moving UnityPlayer.dll to windows folder
+      dst: "$GAMEDIR/drive_c/windows/UnityPlayer.dll"
+      src: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game/UnityPlayer.dll"
+  - move:
+      description: Moving WinPixEventRuntime.dll to windows folder
+      dst: "$GAMEDIR/drive_c/windows/WinPixEventRuntime.dll"
+      src: "$GAMEDIR/drive_c/Program Files/Untitled Goose Game/WinPixEventRuntime.dll"
